@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TempMal.com — Free Temporary Email, Temp Mail & Disposable Email</title>
+  <meta name="description" content="Create a free temporary email address instantly with TempMal.com. Use temp mail and disposable email to receive messages online without exposing your real mailbox.">
+  <link rel="canonical" href="https://tempmal.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tempmal.com/">
+  <meta property="og:title" content="TempMal.com — Free Temporary Email, Temp Mail & Disposable Email">
+  <meta property="og:description" content="Create a free temporary email address instantly with TempMal.com. Use temp mail and disposable email to receive messages online without exposing your real mailbox.">
+  <meta property="og:site_name" content="TempMal.com">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="header-brand">
+        <a href="/" class="logo" aria-label="TempMal.com Home">
+          <svg class="logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="2" y="6" width="28" height="20" rx="3" stroke="currentColor" stroke-width="2.5" fill="none"/>
+            <path d="M2 9L16 18L30 9" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M16 18V26" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M11 26H21" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+          <span class="logo-text">TempMal.com</span>
+        </a>
+        <h1 class="header-headline">Temporary Email Address That Shields Your Real Mailbox</h1>
+      </div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <span class="theme-icon-light" aria-hidden="true">☀</span>
+        <span class="theme-icon-dark" aria-hidden="true" style="display:none">☾</span>
+      </button>
+      <button class="mobile-nav-toggle" id="mobileNavToggle" aria-label="Toggle navigation" aria-expanded="false" style="display:none">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero-section">
+      <div class="container">
+        <p class="hero-text">Create a free disposable email address instantly. Receive emails online without exposing your personal inbox.</p>
+      </div>
+    </section>
+
+    <section class="discover-section">
+      <div class="container">
+        <div class="discover-panel">
+          <div class="discover-header">Discover more</div>
+          <div class="discover-row">
+            <span>Spam protection software</span>
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+          </div>
+          <div class="discover-row">
+            <span>Email address privacy</span>
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+          </div>
+          <div class="discover-row">
+            <span>Secure communication platform</span>
+            <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mailbox-section">
+      <div class="container">
+        <div class="layout-grid">
+          <div class="main-col">
+            <div class="mailbox-card">
+              <div class="mailbox-controls">
+                <div class="email-display">
+                  <div class="email-field">
+                    <label class="field-label">Email Address</label>
+                    <div class="email-input-row">
+                      <span class="email-value" id="currentEmail">—</span>
+                      <button class="btn-copy" id="copyEmailBtn" disabled aria-label="Copy email address">
+                        <span class="btn-copy-label">Copy</span>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="mailbox-actions">
+                    <button class="btn-text" id="deleteEmailBtn" disabled>Delete</button>
+                    <button class="btn-text" id="editEmailBtn" disabled>Edit</button>
+                    <button class="btn-text" id="refreshEmailBtn" disabled>Refresh</button>
+                  </div>
+                </div>
+                <div class="mailbox-meta">
+                  <div class="meta-item">
+                    <span class="meta-label">Status:</span>
+                    <span class="meta-value" id="mailboxStatus">Connecting...</span>
+                  </div>
+                  <div class="meta-item">
+                    <span class="meta-label">Unread:</span>
+                    <span class="meta-value" id="unreadCount">0</span>
+                  </div>
+                  <div class="meta-item">
+                    <button class="btn-new-email" id="newEmailBtn" disabled>New Email</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="inbox-card">
+              <div class="inbox-header-row">
+                <h2 class="inbox-title">Inbox</h2>
+                <div class="inbox-meta">
+                  <span id="inboxCount">0 messages</span>
+                  <span class="refresh-time" id="lastRefreshTime"></span>
+                </div>
+                <div class="inbox-actions">
+                  <button class="btn-small" id="inboxRefreshBtn" disabled>Refresh</button>
+                  <button class="btn-small btn-primary-small" id="inboxNewEmailBtn" disabled>New Email</button>
+                </div>
+              </div>
+              <div class="inbox-table-wrap">
+                <table class="inbox-table" id="inboxTable">
+                  <thead>
+                    <tr>
+                      <th class="col-from">From</th>
+                      <th class="col-subject">Subject</th>
+                      <th class="col-time">Time</th>
+                      <th class="col-actions">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="messageList"></tbody>
+                </table>
+                <div class="empty-inbox" id="emptyInbox">
+                  <p>Your inbox is empty</p>
+                  <p class="empty-sub">Emails sent to your temporary address will appear here automatically.</p>
+                  <button class="btn-primary-small" id="emptyInboxRefreshBtn">Refresh Inbox</button>
+                </div>
+              </div>
+            </div>
+
+            <section class="how-section">
+              <h2>How It Works</h2>
+              <div class="steps-grid">
+                <div class="step-card">
+                  <div class="step-number">01</div>
+                  <h3>Generate</h3>
+                  <p>Create a temporary email instantly.</p>
+                </div>
+                <div class="step-card">
+                  <div class="step-number">02</div>
+                  <h3>Receive</h3>
+                  <p>Receive emails directly in your temporary inbox.</p>
+                </div>
+                <div class="step-card">
+                  <div class="step-number">03</div>
+                  <h3>Protect</h3>
+                  <p>Keep your personal email address private.</p>
+                </div>
+              </div>
+            </section>
+
+            <section class="features-section">
+              <h2>Features</h2>
+              <div class="features-grid">
+                <div class="feature-item">
+                  <strong>Instant Email</strong>
+                  <p>Generate a temporary address in seconds.</p>
+                </div>
+                <div class="feature-item">
+                  <strong>No Registration</strong>
+                  <p>Start without traditional registration.</p>
+                </div>
+                <div class="feature-item">
+                  <strong>Live Inbox</strong>
+                  <p>Receive new emails automatically.</p>
+                </div>
+                <div class="feature-item">
+                  <strong>One-Click Copy</strong>
+                  <p>Copy your temporary address instantly.</p>
+                </div>
+                <div class="feature-item">
+                  <strong>Privacy Focused</strong>
+                  <p>Avoid unnecessarily exposing your personal email.</p>
+                </div>
+                <div class="feature-item">
+                  <strong>Mobile Friendly</strong>
+                  <p>Works across phones, tablets, and desktops.</p>
+                </div>
+              </div>
+            </section>
+
+            <section class="privacy-section">
+              <h2>Keep Your Real Email Private</h2>
+              <p>Disposable email addresses can help you avoid exposing your primary email address to services, newsletters, and unknown senders. Use TempMal.com when you need a quick, throwaway address for sign-ups, downloads, or one-time verifications.</p>
+              <p>Understand that temporary email has limitations: mailboxes are shared, accessible by the service provider, and not intended for sensitive communications. Use it for its intended purpose and keep sensitive data in your personal, secure inbox.</p>
+            </section>
+
+            <section class="faq-section">
+              <h2>FAQ</h2>
+              <div class="faq-list">
+                <div class="faq-item">
+                  <button class="faq-question" aria-expanded="false" aria-controls="faq-1">
+                    <span>What is TempMal.com?</span>
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                  </button>
+                  <div class="faq-answer" id="faq-1" hidden>
+                    <p>TempMal.com provides temporary disposable email addresses for receiving emails without exposing your primary address.</p>
+                  </div>
+                </div>
+                <div class="faq-item">
+                  <button class="faq-question" aria-expanded="false" aria-controls="faq-2">
+                    <span>Do I need to register?</span>
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                  </button>
+                  <div class="faq-answer" id="faq-2" hidden>
+                    <p>No traditional registration is required.</p>
+                  </div>
+                </div>
+                <div class="faq-item">
+                  <button class="faq-question" aria-expanded="false" aria-controls="faq-3">
+                    <span>How does TempMal.com create emails?</span>
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                  </button>
+                  <div class="faq-answer" id="faq-3" hidden>
+                    <p>TempMal.com uses the Mail.tm API to create and manage temporary mailboxes.</p>
+                  </div>
+                </div>
+                <div class="faq-item">
+                  <button class="faq-question" aria-expanded="false" aria-controls="faq-4">
+                    <span>Can I receive verification emails?</span>
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                  </button>
+                  <div class="faq-answer" id="faq-4" hidden>
+                    <p>Yes, provided the sender accepts the temporary email domain and the Mail.tm service is available.</p>
+                  </div>
+                </div>
+                <div class="faq-item">
+                  <button class="faq-question" aria-expanded="false" aria-controls="faq-5">
+                    <span>Can I send emails?</span>
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                  </button>
+                  <div class="faq-answer" id="faq-5" hidden>
+                    <p>Sending emails is not currently supported. TempMal.com is focused on receiving emails to your temporary address.</p>
+                  </div>
+                </div>
+                <div class="faq-item">
+                  <button class="faq-question" aria-expanded="false" aria-controls="faq-6">
+                    <span>Can I create a new temporary email?</span>
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                  </button>
+                  <div class="faq-answer" id="faq-6" hidden>
+                    <p>Yes. Click <strong>New Email</strong> to create a new temporary mailbox.</p>
+                  </div>
+                </div>
+                <div class="faq-item">
+                  <button class="faq-question" aria-expanded="false" aria-controls="faq-7">
+                    <span>How long does a mailbox last?</span>
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                  </button>
+                  <div class="faq-answer" id="faq-7" hidden>
+                    <p>Mailbox lifetime depends on the underlying Mail.tm service and usage policies. Mailboxes may be removed after periods of inactivity. For exact policies, refer to the Mail.tm documentation.</p>
+                  </div>
+                </div>
+                <div class="faq-item">
+                  <button class="faq-question" aria-expanded="false" aria-controls="faq-8">
+                    <span>Is TempMal.com completely anonymous?</span>
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+                  </button>
+                  <div class="faq-answer" id="faq-8" hidden>
+                    <p>TempMal.com cannot guarantee complete anonymity. Temporary email reduces exposure of your primary address, but the service provider can still see mail passing through its systems. Use it appropriately and avoid sharing sensitive information.</p>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <aside class="side-col">
+            <nav class="side-nav" aria-label="Side navigation">
+              <a href="#hero" class="side-nav-item active">Home</a>
+              <a href="about.html" class="side-nav-item">About</a>
+              <a href="contact.html" class="side-nav-item">Contact</a>
+            </nav>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <strong>TempMal.com</strong>
+        <p>Temporary Email That Shields Your Real Mailbox</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <ul class="footer-list">
+          <li><a href="/">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms & Conditions</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="disclaimer.html">Disclaimer</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+        </ul>
+      </nav>
+      <div class="footer-bottom">
+        <p>&copy; 2026 TempMal.com. All rights reserved.</p>
+        <p>Temporary email powered by <a href="https://mail.tm/" target="_blank" rel="noopener noreferrer">Mail.tm</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast-container" id="toastContainer" aria-live="polite" aria-atomic="false"></div>
+
+  <div class="dialog-overlay" id="confirmDialog" hidden>
+    <div class="dialog" role="dialog" aria-modal="true" aria-labelledby="confirmTitle">
+      <h3 id="confirmTitle">Create a New Temporary Email?</h3>
+      <p>Your current temporary mailbox will be replaced with a new mailbox.</p>
+      <div class="dialog-actions">
+        <button class="btn-secondary" id="confirmCancelBtn">Cancel</button>
+        <button class="btn-primary-small" id="confirmOkBtn">Create New Email</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="reader-overlay" id="readerOverlay" hidden>
+    <div class="reader-dialog" role="dialog" aria-modal="true" aria-labelledby="readerTitle">
+      <div class="reader-header">
+        <button class="btn-secondary" id="readerBackBtn">← Back to Inbox</button>
+      </div>
+      <div class="reader-body">
+        <div class="reader-meta">
+          <div class="reader-row"><span class="reader-label">From:</span><span class="reader-value" id="readerFrom">—</span></div>
+          <div class="reader-row"><span class="reader-label">To:</span><span class="reader-value" id="readerTo">—</span></div>
+          <div class="reader-row"><span class="reader-label">Subject:</span><span class="reader-value" id="readerSubject">—</span></div>
+          <div class="reader-row"><span class="reader-label">Date:</span><span class="reader-value" id="readerDate">—</span></div>
+        </div>
+        <div class="reader-content" id="readerContent"></div>
+        <div class="reader-attachments" id="readerAttachments" hidden>
+          <h4>Attachments</h4>
+          <ul id="attachmentList"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
